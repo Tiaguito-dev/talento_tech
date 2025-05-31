@@ -1,0 +1,293 @@
+/* PARÁMETROS GENERALES */
+* {
+    box-sizing: border-box;
+    /* Dice que el tamaño de la caja se va a medir teniendo 
+    en cuenta el padding y el border y no los suma Después. 
+    Si son 20px de with va a tener en cuenta el padding, el border y el content=20px*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F8F9FA;
+    /* Color principal blanco hueso */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #212529;
+    /* Texto principal gris oscuro */
+}
+
+h1 {
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 6rem);
+    /* Esto asegura que el tamaño no baje de 2rem ni suba de 6rem, y se ajuste con vw entre esos límites. */
+}
+
+h2 {
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 5rem);
+}
+
+h3,
+h4 {
+    font-weight: 400;
+    color: #6C757D;
+    /* Subtítulos gris medio */
+    font-size: clamp(1.2rem, 2.2vw, 3rem);
+}
+
+p,
+label {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #212529;
+    /* Texto principal gris oscuro */
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+
+    /* 
+        Acá no le pongo unidades em porque sino estoy restringiéndolo
+        a que esté en un contenedor. Cosa que puedo especificarlo después
+    */
+    /*  1em = es el tamaño font-size del padre
+        si quiero cambiar el tamaño fuente de un contenedor tengo que hacer div{font-size: nuevo_valor;} por ejemplo
+    */
+}
+
+li,
+a,
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #212529;
+}
+
+section {
+    background-color: #E9ECEF;
+    /* Color de fondo de secciones */
+    margin: 4vw;
+    padding: 1vw;
+    border-radius: 3px;
+    border: 2px #DEE2E6 solid;
+    /* Color de líneas/bordes */
+}
+
+section h2 {
+    padding: 15px;
+    padding-bottom: 30px;
+}
+
+/* ---- VAMOS CON EL BODY ---- */
+
+/* HEADER */
+
+header {
+    position: sticky;
+    height: 6rem;
+    /* 💡 Antes tenías 100px, lo hice relativo para mejorar en responsive */
+    top: 0;
+    z-index: 10;
+    background-color: #f8f9faaa;
+    /* Este va a ser el estándar para el efecto difuso (3px) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 💡 Añadido para alinear verticalmente */
+    padding: 0 2rem;
+    /* 💡 Espaciado horizontal general */
+    font-size: 6rem;
+    height: 6rem;
+}
+
+header img,
+nav {
+    height: 1em;
+}
+
+header nav,
+header div {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente el <ul> dentro del <nav> */
+    align-items: center;
+    /* Centra verticalmente el <ul> dentro del <nav> */
+    gap: 4rem;
+    /* 💡 Añadido para separación entre ul e input */
+}
+
+header #logo_header {
+    /*-- VOY A TENER QUE PONER UN QUERY ACÁ --*/
+    position: absolute;
+    left: 10px;
+    margin: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4vw;
+    /* Espacio entre los elementos del menú */
+    justify-content: center;
+    /* Centra horizontalmente los <li> dentro del <ul> */
+    align-items: center;
+    /* Centra verticalmente los <li> dentro del <ul> */
+    margin-right: 1rem;
+    /* 💡 Separación del buscador */
+}
+
+header nav li {
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
+    /* Escalado de fuente proporcional y legible */
+}
+
+/* MAIN */
+
+/* Imagen de fondo */
+.banner {
+    position: absolute;
+    top: 6rem;
+    /* 💡 Corregido: equivale a los 100px del header */
+    left: 0;
+    width: 100vw;
+    height: 30vw;
+    background-image: url('imagenes/sindy-sussengut-JlLhBYbolSU-unsplash (1).jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    /* Para que esté detrás del contenido */
+}
+
+main {
+    width: 40vw;
+    position: absolute;
+    top: 6rem;
+    left: 2rem;
+    display: flex;
+    justify-content: center;
+
+    height: 25vw;
+    flex-direction: column;
+    background-color: #f8f9faaa;
+    backdrop-filter: blur(3px);
+    padding-left: 5vw;
+
+}
+
+main h1 {
+    color: #212529;
+    text-shadow: 1px 1px #f8f9fa;
+    /* Gris oscuro */
+    /* Sutil borde blanco para destacar en fondos oscuros */
+}
+
+main h2 {
+    color: #FF6F00;
+    /* Naranja cálido */
+    text-shadow: 1px 1px #212529;
+    /* Sombra para contraste suave */
+
+}
+
+main>div {
+    display: flex;
+    flex-direction: column;
+}
+
+main #links_interes ul {
+    list-style: none;
+    /* Acá falta grid */
+}
+
+
+.novedades {
+    position: relative;
+    margin-top: 27vw;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vw;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: #FF6F00 solid 2px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#Productos_destacados div {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+#Productos_destacados .card {
+    /* Esto eso solo para que quede en el cebntro, porque los div de card-containter tienen flex */
+    /* CUANDO LE AGREGUE LA IMAGEN LO VOY A ETNER QUE CAMBIAR */
+    justify-content: center;
+}
+
+/* FORMULARIOS */
+
+#Contacto>h2 {
+    /* Queda mejor si le saco el padding de abajo */
+    padding-bottom: 0;
+}
+
+.contenedor_formularios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.form_contacto {
+    flex: 1 1 300px;
+    /* permite adaptarse al ancho del viewport */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #F8F9FA;
+    padding: 2rem;
+    border: 2px solid #DEE2E6;
+    border-radius: 8px;
+}
+
+.form_contacto h3 {
+    /* Tiene que llevar color más fuerte */
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.form_contacto input,
+.form_contacto textarea {
+    padding: 0.75rem;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    color: #212529;
+}
+
+.boton_primario {
+    background-color: #FF6F00;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
