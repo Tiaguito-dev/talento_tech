@@ -59,12 +59,28 @@ label {
     */
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    /* mantiene el color del texto padre */
+    padding: 10px;
+    border-radius: 20px;
+}
+
 li,
 a,
 button {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     color: #212529;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+a:hover,
+button:hover {
+    background-color: #E9ECEF;
+    /* color cuando pasás el mouse */
 }
 
 section {
@@ -225,12 +241,12 @@ main #links_interes ul {
     padding: 1rem;
     border-radius: 8px;
     border: #FF6F00 solid 2px;
-    width: 200px;
+    width: 250px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 300px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     /* Los separa al máximo teniendo en cuenta el sentido de la columna*/
 }
@@ -248,10 +264,69 @@ main #links_interes ul {
     font-size: 200%;
 }
 
+.boton_carrito {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF6F00;
+    /* color de fondo */
+    color: white;
+    /* color del ícono */
+    border-radius: 50%;
+    /* forma circular */
+    width: 40px;
+    /* tamaño del círculo */
+    height: 40px;
+    font-size: 18px;
+    /* tamaño del ícono */
+    cursor: pointer;
+    border: 0;
+    margin-top: 10px;
+}
+
 #cabecera_destacados {
     display: grid;
     grid-template-columns: 30vw min-content;
     align-items: center;
+}
+
+/* REDES */
+
+#contenedor_iconos_redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.icono_redes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.icono_redes i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    color: #FF6F00;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+}
+
+/* Hover opcional */
+.icono-red:hover {
+    opacity: 0.85;
 }
 
 /* FORMULARIOS */
@@ -263,21 +338,25 @@ main #links_interes ul {
 
 .contenedor_formularios {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+}
+
+.contenedor_formularios button {
+    margin: 0;
 }
 
 .form_contacto {
     flex: 1 1 300px;
     /* permite adaptarse al ancho del viewport */
-    max-width: 500px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     background-color: #F8F9FA;
-    padding: 2rem;
+    padding: 1rem;
     border: 2px solid #DEE2E6;
     border-radius: 8px;
 }
@@ -307,7 +386,25 @@ main #links_interes ul {
     border-radius: 4px;
     cursor: pointer;
     height: 50px;
-    width: 250px;
+    width: max-content;
+    padding: 10px;
+}
+
+.formulario_oculto {
+    display: none;
+}
+
+.desaparecer_btn {
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 2px solid;
+    border-color: #FF6F00;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 50px;
+    width: max-content;
+    padding: 10px;
 }
 
 

@@ -1,6 +1,54 @@
 addEventListener("DOMContentLoaded", function () {
-    generarTarjeta()
+    // Consumo la api
+    generarTarjeta();
+
+    // Este es el botón para ponerse en contacto
+    let boton_contacto = document.getElementById("boton_ponerse_contacto")
+    boton_contacto.addEventListener("click", function () {
+
+        // pido ambos formularios
+        let formulario_desactivar = document.getElementById("ponerse_contacto")
+        let formulario_activar = document.getElementById("realizar_pedido")
+
+        // recupero el otro botón (lo voy a activar)
+        let boton_activar = document.getElementById("boton_realizar_pedido")
+
+        // Aprieta para ponerse en contacto, así que es el que quiro activar, el otro lo desactivo
+        cambiarFormulario(boton_contacto, boton_activar, formulario_activar, formulario_desactivar)
+    })
+
+    // Este es el botón de realizar pedido
+    let boton_pedido = document.getElementById("boton_realizar_pedido")
+    boton_pedido.addEventListener("click", function () {
+
+        // pido ambos formularios
+        let formulario_desactivar = document.getElementById("realizar_pedido")
+        let formulario_activar = document.getElementById("ponerse_contacto")
+
+        // recupero el otro botón (lo voy a activar)
+        let boton_activar = document.getElementById("boton_ponerse_contacto")
+
+        // Aprieta para realizar un pedido, así que es el que quiro activar, el otro lo desactivo
+        cambiarFormulario(boton_pedido, boton_activar, formulario_activar, formulario_desactivar)
+    })
 });
+
+function cambiarFormulario(btn_desactivar, btn_activar, form_desactivar, form_activar) {
+    // Desaparezco este botón
+    btn_desactivar.classList.remove("boton_primario")
+    btn_desactivar.classList.add("desaparecer_btn")
+
+    // Aparezco este botón
+    btn_activar.classList.remove("desaparecer_btn")
+    btn_activar.classList.add("boton_primario")
+
+    // Desaparezco formulario
+    form_desactivar.classList.add("formulario_oculto");
+
+    // Aparezco formulario
+    form_activar.classList.remove("formulario_oculto");
+
+}
 
 function generarTarjeta() {
     const url = 'https://dummyjson.com/products?limit=10&select=title,price,images';
@@ -28,12 +76,17 @@ function generarTarjeta() {
                 let imagen = document.createElement("img");
                 imagen.src = producto.images[0];
                 imagen.alt = producto.description;
+                // Botón del carrito
+                let boton = document.createElement("button");
+                boton.classList.add("boton_carrito");
+                boton.innerHTML = '<i class="fas fa-shopping-cart"></i>';
 
                 // Lo agrego todo a la tarjeta
                 //TODO FALTA AGREGAR LA IMAGEN
                 tarjeta.appendChild(titulo);
                 tarjeta.appendChild(imagen);
                 tarjeta.appendChild(precio);
+                tarjeta.appendChild(boton);
 
                 let cardContainer = document.getElementById("card-container");
                 cardContainer.appendChild(tarjeta);
