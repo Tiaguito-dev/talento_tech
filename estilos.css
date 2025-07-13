@@ -491,21 +491,24 @@ main #links_interes ul {
     }
 
     .banner {
-        height: 200px;
+        height: 300px;
         top: 200px;
     }
 
     #novedades {
         display: grid;
-        grid-template-columns: auto auto;
-
-        gap: 3vw;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
         margin-top: 10px;
     }
 
     #novedades .card {
-        width: 100%;
-        height: 200px;
+        width: 100px;
+        height: 150px;
+    }
+
+    #novedades .card h3 {
+        font-size: x-large;
     }
 
     #card-container {
@@ -537,8 +540,12 @@ main #links_interes ul {
         font-size: 28px;
     }
 
-    .form_contacto {
+    #Contacto {
         width: 90%;
+    }
+
+    .form_contacto {
+        width: 100%;
     }
 
     #cabecera_destacados {
