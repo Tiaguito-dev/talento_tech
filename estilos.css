@@ -502,12 +502,12 @@ main #links_interes ul {
     }
 
     #novedades .card {
-        width: 100px;
-        height: 150px;
+        width: 95px;
+
     }
 
     #novedades .card h3 {
-        font-size: x-large;
+        font-size: 140%;
     }
 
     #card-container {
