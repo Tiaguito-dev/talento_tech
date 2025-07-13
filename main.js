@@ -77,7 +77,7 @@ function renderizarProductos() {
 
                 // Titulo
                 let titulo = document.createElement("h3");
-                titulo.textContent = acortarTitulo(producto.title); // Esta es una funcion que acorta el titulo a un max de dos palabras
+                acortarTitulo(producto.title, titulo); // Esta es una funcion que acorta el titulo a un max de dos palabras
                 // Precio
                 let precio = document.createElement("p");
                 precio.textContent = producto.price;
@@ -113,7 +113,7 @@ function renderizarProductos() {
 }
 
 
-function acortarTitulo(texto) {
+function acortarTitulo(texto, titulo) {
     // Flag
     console.log("Estoy dentro de la funcion acortarTitulo");
 
@@ -123,6 +123,7 @@ function acortarTitulo(texto) {
         if (texto[i] == " " && palabras < 2) {
             // Llegó a un espacio y todavía no hay dos palabras
             palabras++;
+            titulo.style = "font-size: 200%"
         }
         if (palabras == 2) {
             break;
@@ -130,9 +131,11 @@ function acortarTitulo(texto) {
         i = i + 1;
     }
     console.log(i)
-    textito = texto.slice(0, i);
+    let textito = texto.slice(0, i);
     console.log("Titulo de max 2 palabras: ", textito)
-    return textito
+
+    titulo.textContent = textito;
+
 }
 
 

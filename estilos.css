@@ -252,14 +252,13 @@ main #links_interes ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     /* Los separa al máximo teniendo en cuenta el sentido de la columna*/
 }
 
 .card img {
     /* RESTRICCIONES A LA IMAGEN DE LA TARJETA */
     width: 100%;
-    height: 60%;
     object-fit: cover;
     /* Que no se deforme, sino que recorte */
     border-radius: 4px;
