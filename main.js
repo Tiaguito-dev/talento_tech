@@ -1,6 +1,12 @@
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 addEventListener("DOMContentLoaded", function () {
+
     // Consumo la api
-    generarTarjeta();
+    renderizarProductos();
+
+    // Actualizo el contador por si tengo algo en el local storage
+    actualizarContador();
 
     // Este es el botón para ponerse en contacto
     let boton_contacto = document.getElementById("boton_ponerse_contacto")
@@ -31,6 +37,7 @@ addEventListener("DOMContentLoaded", function () {
         // Aprieta para realizar un pedido, así que es el que quiro activar, el otro lo desactivo
         cambiarFormulario(boton_pedido, boton_activar, formulario_activar, formulario_desactivar)
     })
+
 });
 
 function cambiarFormulario(btn_desactivar, btn_activar, form_desactivar, form_activar) {
@@ -50,7 +57,9 @@ function cambiarFormulario(btn_desactivar, btn_activar, form_desactivar, form_ac
 
 }
 
-function generarTarjeta() {
+function renderizarProductos() {
+
+
     const url = 'https://dummyjson.com/products?limit=10&select=title,price,images';
     //devuelve título, precio y UN ARRAY DE IMÁGENES
     fetch(url)
@@ -76,10 +85,17 @@ function generarTarjeta() {
                 let imagen = document.createElement("img");
                 imagen.src = producto.images[0];
                 imagen.alt = producto.description;
+
                 // Botón del carrito
                 let boton = document.createElement("button");
                 boton.classList.add("boton_carrito");
                 boton.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+                // Le agrego evento al botón para que sea independiente de cada tarjeta
+                boton.addEventListener("click", function () {
+                    alert(`"${producto.title}" fue agregado al carrito`);
+                    agregarProducto(producto);
+                    actualizarContador();
+                });
 
                 // Lo agrego todo a la tarjeta
                 //TODO FALTA AGREGAR LA IMAGEN
@@ -90,13 +106,10 @@ function generarTarjeta() {
 
                 let cardContainer = document.getElementById("card-container");
                 cardContainer.appendChild(tarjeta);
+
             })
         })
         .catch((error) => console.error("Hubo algún error", error));
-
-    for (let i = 0; i < 1; ++i) {
-        console.log("loop")
-    };
 }
 
 
@@ -121,3 +134,19 @@ function acortarTitulo(texto) {
     console.log("Titulo de max 2 palabras: ", textito)
     return textito
 }
+
+
+// -- FUNCIONES DEL CARRITO
+// Guardo en el carrito
+function agregarProducto(producto) {
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarContador();
+};
+
+// Actualiza un contador que está en el index
+function actualizarContador() {
+    const contador = document.getElementById("contador_carrito");
+    contador.textContent = carrito.length;
+    console.log(`EL TAMAÑO DEL CARRITO ES: ${carrito.length}`)
+};

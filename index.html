@@ -46,7 +46,7 @@
                 <li><a href="#Productos_destacados">Catálogo</a></li>
                 <li><a href="#Redes">Redes</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
-                <li><a href=""><i class="fas fa-shopping-cart"></i> </a></li>
+                <li><a href=""><i class="fas fa-shopping-cart"></i> <span id="contador_carrito">0</span> </a></li>
             </ul>
         </nav>
     </header>
@@ -67,7 +67,7 @@
     </main>
 
     <div class="banner"></div>
-    <div class="novedades">
+    <div id="novedades">
         <div class="card">
             <h3>PATINES</h3>
             <img src="./imagenes/patin_fondo_blanco.png" alt="">
@@ -133,7 +133,7 @@
     <section id="Productos_destacados">
         <div id="cabecera_destacados">
             <h2>Productos Destacados</h2>
-            <button class="boton_primario" type=""> Descargar catálogo completo</button>
+            <button class="boton_primario"> Descargar catálogo completo</button>
             <!-- Acá en el tipo de botón tenría que ir uno para la descarga -->
         </div>
         <div id="card-container">
@@ -172,7 +172,7 @@
         </div>
     </section>
 
-    <!-- ESTO EN REALIDAD ES LA SECCIÓN AYUDA -->>
+    <!-- ESTO EN REALIDAD ES LA SECCIÓN AYUDA -->
     <section id="Redes">
         <h2> REDES </h2>
         <!-- ACÁ DEBERÍA IR ESTO
@@ -205,7 +205,8 @@
 
         <!-- ig -->
         <div id="contenedor_iconos_redes">
-            <a href="https://www.instagram.com/tuusuario" class="icono_redes" target="_blank">
+            <a href="https://www.instagram.com/todoparaelpatinador?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="icono_redes" target="_blank">
                 <i class="fab fa-instagram"></i>
             </a>
             <!-- face -->
